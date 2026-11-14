@@ -30,6 +30,7 @@ export function Diagram({ kind, className, label }: { kind: DiagramKind; classNa
       <rect width="400" height="165" fill={`url(#g-${kind})`} />
       {d.edges.map(([a, b], i) => {
         const p = d.nodes[a], q = d.nodes[b];
+        if (!p || !q) return null;
         return <line key={i} x1={p.x} y1={p.y} x2={q.x} y2={q.y} className="stroke-primary/50" strokeWidth="1" strokeDasharray={i % 2 ? "3 3" : undefined} />;
       })}
       {d.nodes.map((n, i) => {
