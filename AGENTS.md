@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- All portfolio content lives in `src/data/portfolio.ts`; sections in `src/components/sections/*` only render it — keeps edits in one place.
+- Contact form posts through the `sendContact` server function to Web3Forms using the `WEB3FORMS_ACCESS_KEY` secret; without it the form reports "not set up" and never claims success.
+- Theme is set before paint by `themeInitScript` in `__root.tsx` head and toggled via the `.dark` class — avoids a flash of the wrong theme.

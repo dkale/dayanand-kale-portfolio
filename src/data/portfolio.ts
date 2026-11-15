@@ -11,6 +11,10 @@ export const profile = {
     "Technical / Solution Architect with 15+ years of experience designing, developing, and modernizing enterprise software systems. Specializing in distributed systems, cloud-native architecture, reusable engineering platforms, performance optimization, and AI-powered engineering workflows.",
   location: "Pune, India",
   email: "dkale86@gmail.com",
+  phone: "+91 98609 94474",
+  phoneHref: "tel:+919860994474",
+  dateOfBirth: "13 October 1986",
+  languages: ["English", "Hindi", "Marathi"],
   resumeUrl: "/Dayanand_Kale_Resume.pdf",
   resumeFileName: "Dayanand_Kale_Resume.pdf",
   /** Replace the photo by pointing this at a new image URL. */
@@ -77,14 +81,15 @@ export const experience: Experience[] = [
   },
   {
     company: "Synechron Technologies", role: "Technology Specialist", location: "Pune, India", period: "Jan 2015 – Feb 2023",
-    summary: "Architectural design and front-end development for enterprise capital markets applications for global investment-management clients.",
+    summary: "Architectural design and front-end development for enterprise capital markets applications — MiddleBackOfficeIT engagements for Davidson Kempner and AQR Capital Management.",
     points: [
       { text: "Developed real-time P&L visualization dashboards." },
       { text: "Built reusable Angular and Kendo UI components and configurable grid export functionality." },
       { text: "Engineered a reconciliation engine using C#, ASP.NET Core, Web API, and SQL Server." },
-      { text: "Collaborated with international stakeholders and distributed engineering teams." },
+      { text: "Primary technical liaison for requirements, solution design and production demos with client and on-site teams." },
+      { title: "Engagements", text: "MiddleBackOfficeIT, Davidson Kempner and AQR Capital Management (capital markets)." },
     ],
-    tags: ["Angular", "Kendo UI", "C#", "ASP.NET Core", "Web API", "SQL Server"],
+    tags: ["Angular", "Kendo UI", "DevExtreme", "C#", "ASP.NET Core", "Web API", "SQL Server"],
   },
   {
     company: "Ohum Healthcare Solutions", role: "Software Developer", period: "Aug 2013 – Dec 2014",
@@ -117,7 +122,7 @@ export const projects: Project[] = [
   { id: "superagent", title: "SuperAgent", company: "AgData", summary: "AI orchestration platform for software development workflows.", context: "AI coding assistants are powerful but unstructured; output quality depends on process, context and verification.", contribution: "Co-developed the platform integrating VS Code and GitHub Copilot with multi-agent workflows and automated TDD validation.", highlights: ["VS Code and GitHub Copilot integration", "Multi-agent development workflows", "Automated TDD validation", "Reflective memory loops", "Engineering productivity and code quality"], tech: ["GitHub Copilot", "VS Code", "MCP", "TDD"], diagram: "agents" },
   { id: "filesync", title: "Distributed File Synchronization", company: "Abjayon", summary: "Reliable multi-tenant file synchronization across SFTP and cloud storage.", context: "Tenants exchange large file sets across SFTP and Azure Blob Storage; transfers must be efficient and survive failures.", contribution: "Architected the framework including throttling, differential sync and recovery strategies.", highlights: ["SFTP and Azure Blob Storage", "Differential synchronization", "Concurrency throttling", "Fault recovery"], tech: [".NET", "Azure Blob Storage", "SFTP"], diagram: "sync" },
   { id: "caching", title: "Enterprise Caching Architecture", company: "AgData", summary: "Multi-layer distributed caching for microservices.", context: "Microservices were spending significant time on repeated database reads.", contribution: "Implemented a multi-layer caching architecture with FusionCache and Redis.", highlights: ["FusionCache and Redis", "Multi-layer caching", "Improved RavenDB query performance", "Approximately 50% reduction in microservice database latency"], tech: ["FusionCache", "Redis", "RavenDB", ".NET"], diagram: "cache" },
-  { id: "recon", title: "Capital Markets Reconciliation Engine", company: "Synechron", summary: "High-volume financial data reconciliation.", context: "Capital markets operations need to reconcile large volumes of positions and transactions across systems.", contribution: "Engineered the reconciliation engine and its extensible workflow model.", highlights: ["C# and ASP.NET Core", "Web APIs", "SQL Server", "Extensible reconciliation workflows"], tech: ["C#", "ASP.NET Core", "SQL Server"], diagram: "recon" },
+  { id: "recon", title: "Capital Markets Reconciliation Engine", company: "Synechron · Davidson Kempner / AQR", summary: "High-volume financial data reconciliation.", context: "Capital markets operations need to reconcile large volumes of positions and transactions across systems.", contribution: "Engineered the reconciliation engine and its extensible workflow model.", highlights: ["C# and ASP.NET Core", "Web APIs", "SQL Server", "Extensible reconciliation workflows"], tech: ["C#", "ASP.NET Core", "SQL Server"], diagram: "recon" },
 ];
 
 export type CaseStudy = { problem: string; constraints: string[]; architecture: string; components: string[]; decisions: string[]; tradeoffs: string[]; quality: string[]; lessons: string[] };
