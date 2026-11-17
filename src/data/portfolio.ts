@@ -1,6 +1,6 @@
-import portrait from "@/assets/dayanand-kale-portrait.png.asset.json";
-
 /** Single source of truth for portfolio content. Edit here to update the site. */
+// BASE_URL keeps links working both on Lovable ("/") and GitHub Pages ("/<repo>/").
+const base = import.meta.env.BASE_URL;
 export const profile = {
   name: "Dayanand Kale",
   initials: "DK",
@@ -15,10 +15,10 @@ export const profile = {
   phoneHref: "tel:+919860994474",
   dateOfBirth: "13 October 1986",
   languages: ["English", "Hindi", "Marathi"],
-  resumeUrl: "/Dayanand_Kale_Resume.pdf",
+  resumeUrl: `${base}Dayanand_Kale_Resume.pdf`,
   resumeFileName: "Dayanand_Kale_Resume.pdf",
-  /** Replace the photo by pointing this at a new image URL. */
-  photoUrl: portrait.url as string | null,
+  /** Replace the photo by dropping a new file into public/ and updating this path. */
+  photoUrl: `${base}dayanand-kale-portrait.png` as string | null,
   heroTags: [".NET", "Azure", "Angular", "Distributed Systems", "Enterprise Architecture", "AI Engineering"],
 };
 
