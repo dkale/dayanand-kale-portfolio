@@ -15,7 +15,7 @@ export const profile = {
   phoneHref: "tel:+919860994474",
   dateOfBirth: "13 October 1986",
   languages: ["English", "Hindi", "Marathi"],
-  resumeUrl: `${base}Dayanand_Kale_Resume.pdf`,
+  resumeUrl: `Dayanand_Kale_Resume.pdf`,
   resumeFileName: "Dayanand_Kale_Resume.pdf",
   /** Replace the photo by dropping a new file into public/ and updating this path. */
   photoUrl: `${base}dayanand-kale-portrait.png` as string | null,
