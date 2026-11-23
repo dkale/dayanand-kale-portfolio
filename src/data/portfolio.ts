@@ -14,8 +14,8 @@ export const profile = {
   phone: "+91 98609 94474",
   phoneHref: "tel:+919860994474",
   languages: ["English", "Hindi", "Marathi"],
-  resumeUrl: `Dayanand_Kale_Resume.pdf`,
-  resumeFileName: "Dayanand_Kale_Resume.pdf",
+  resumeUrl: `2026-11_Resume_DayanandKale_FullStackArchitect.pdf`,
+  resumeFileName: "2026-11_Resume_DayanandKale_FullStackArchitect.pdf",
   /** Replace the photo by dropping a new file into public/ and updating this path. */
   photoUrl: `${base}dayanand-kale-portrait.png` as string | null,
   heroTags: [".NET", "Azure", "Angular", "Distributed Systems", "AI Engineering", "Agentic Systems"],
