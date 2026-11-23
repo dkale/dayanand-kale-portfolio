@@ -13,6 +13,7 @@ export function Hero() {
           <p className="eyebrow flex items-center gap-2"><MapPin className="h-3.5 w-3.5" /> {profile.location}</p>
           <h1 id="home-title" className="mt-5 text-5xl font-extrabold tracking-tight md:text-6xl">{profile.name}</h1>
           <p className="mt-3 text-lg font-semibold text-primary">{profile.title}</p>
+          <p className="mt-2 text-sm font-medium text-muted-foreground">{profile.subtitle}</p>
           <p className="mt-6 text-2xl font-semibold leading-snug tracking-tight md:text-3xl">{profile.headline}</p>
           <p className="mt-5 max-w-xl leading-relaxed text-muted-foreground">{profile.intro}</p>
           <div className="mt-8 flex flex-wrap gap-3">

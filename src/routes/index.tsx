@@ -12,8 +12,8 @@ import { Education } from "@/components/sections/Education";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
 
-const title = "Dayanand Kale — Technical & Solution Architect";
-const description = "Technical / Solution Architect with 15+ years in enterprise software, distributed systems, Microsoft Azure, .NET, Angular and AI-assisted engineering. Based in Pune, India.";
+const title = "Dayanand Kale — Senior Specialist Software Engineer & Technical Architect";
+const description = "Senior Specialist Software Engineer and Technical Architect in Pune with 15+ years across enterprise architecture, .NET, Azure, distributed systems, and AI-assisted engineering.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -34,7 +34,7 @@ export const Route = createFileRoute("/")({
         email: `mailto:${profile.email}`, telephone: profile.phone,
         address: { "@type": "PostalAddress", addressLocality: "Pune", addressCountry: "IN" },
         sameAs: socials.map((s) => s.href),
-        knowsAbout: ["Solution Architecture", "Distributed Systems", "Microsoft Azure", ".NET", "Angular", "AI-assisted software engineering"],
+        knowsAbout: ["Enterprise Architecture", "AI-Native Software Engineering", "Agentic Systems", "Distributed Systems", "Domain-Driven Design", "Microservices", "Microsoft Azure", ".NET", "Angular", "React", "Apache Kafka", "AI-Assisted Software Engineering"],
       }),
     }],
   }),

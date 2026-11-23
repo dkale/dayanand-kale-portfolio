@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { contactSchema } from "@/lib/contact-schema";
 
-const valid = { name: "Ana", email: "ana@example.com", subject: "Hello", message: "A message long enough", startedAt: 0 };
+const valid = { name: "Ana", email: "ana@example.com", subject: "Hello", message: "A message long enough" };
 
 describe("contact form validation", () => {
   it("accepts a complete message", () => {

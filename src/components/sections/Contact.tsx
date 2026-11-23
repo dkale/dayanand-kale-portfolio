@@ -1,9 +1,8 @@
-import { useRef, useState, type FormEvent } from "react";
-import { useServerFn } from "@tanstack/react-start";
+import { useState, type FormEvent } from "react";
 import { CheckCircle2, Linkedin, Loader2, Mail, MapPin, Phone, Send, TriangleAlert } from "lucide-react";
 import { profile, socials } from "@/data/portfolio";
 import { contactSchema } from "@/lib/contact-schema";
-import { sendContact } from "@/lib/contact.functions";
+import { submitContactMessage } from "@/lib/contact-submit";
 import { Section } from "@/components/portfolio/Section";
 import { cn } from "@/lib/utils";
 
@@ -11,8 +10,6 @@ type Fields = "name" | "email" | "subject" | "message";
 type Status = { kind: "idle" | "sending" | "sent" } | { kind: "error"; text: string };
 
 export function Contact() {
-  const send = useServerFn(sendContact);
-  const startedAt = useRef(Date.now());
   const [errors, setErrors] = useState<Partial<Record<Fields, string>>>({});
   const [status, setStatus] = useState<Status>({ kind: "idle" });
   const linkedin = socials.find((s) => s.kind === "linkedin");
@@ -24,7 +21,7 @@ export function Contact() {
     const input = {
       name: String(fd.get("name") ?? ""), email: String(fd.get("email") ?? ""),
       subject: String(fd.get("subject") ?? ""), message: String(fd.get("message") ?? ""),
-      website: String(fd.get("website") ?? ""), startedAt: startedAt.current,
+      botcheck: String(fd.get("botcheck") ?? ""),
     };
     const parsed = contactSchema.safeParse(input);
     if (!parsed.success) {
@@ -36,21 +33,19 @@ export function Contact() {
     }
     setErrors({});
     setStatus({ kind: "sending" });
-    try {
-      const res = await send({ data: parsed.data });
-      if (res.ok) { setStatus({ kind: "sent" }); form.reset(); startedAt.current = Date.now(); return; }
-      setStatus({ kind: "error", text: res.reason === "not_configured"
-        ? `The contact form isn't set up yet. Please email me directly at ${profile.email}.`
-        : res.reason === "spam" ? "That was a little quick — please wait a moment and try again."
-        : `Your message couldn't be sent. Please try again or email ${profile.email}.` });
-    } catch {
-      setStatus({ kind: "error", text: `Your message couldn't be sent. Please try again or email ${profile.email}.` });
-    }
+    const result = await submitContactMessage(
+      parsed.data,
+      import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+    );
+    if (result.ok) { setStatus({ kind: "sent" }); form.reset(); return; }
+    setStatus({ kind: "error", text: result.reason === "not_configured"
+      ? `The contact form isn't set up yet. Please email me directly at ${profile.email}.`
+      : `Your message couldn't be sent. Please try again or email ${profile.email}.` });
   }
 
   return (
     <Section id="contact" eyebrow="08 · Contact" title="Let's build scalable, intelligent systems together."
-      intro="Open to architecture roles, consulting and conversations about distributed systems or AI-assisted engineering.">
+      intro="Open to hands-on technical architect and senior engineering roles, plus conversations about distributed systems or AI-assisted engineering.">
       <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr]">
         <div className="space-y-3">
           <a href={`mailto:${profile.email}`} className="flex items-center gap-3 rounded-sm border border-border bg-card p-4 transition-colors hover:border-primary/50">
@@ -76,10 +71,7 @@ export function Contact() {
           </div>
           <div className="mt-4"><Field name="subject" label="Subject" error={errors.subject} /></div>
           <div className="mt-4"><Field name="message" label="Message" error={errors.message} textarea /></div>
-          {/* Honeypot: hidden from people, bots fill it in. */}
-          <div aria-hidden className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
-            <label>Website <input name="website" tabIndex={-1} autoComplete="off" /></label>
-          </div>
+          <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} aria-hidden="true" />
           <div className="mt-6 flex flex-wrap items-center gap-4">
             <button type="submit" disabled={status.kind === "sending"} className="inline-flex h-11 items-center gap-2 rounded-sm bg-primary px-5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-60">
               {status.kind === "sending" ? <><Loader2 aria-hidden className="h-4 w-4 animate-spin" /> Sending…</> : <><Send aria-hidden className="h-4 w-4" /> Send message</>}

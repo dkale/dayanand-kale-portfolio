@@ -30,6 +30,7 @@ jobs:
         # (<user>.github.io repo) or a custom domain, change this to "/".
         env:
           VITE_BASE: /${{ github.event.repository.name }}/
+          VITE_WEB3FORMS_ACCESS_KEY: ${{ vars.VITE_WEB3FORMS_ACCESS_KEY }}
         run: bun run build
 
       - name: Upload Pages artifact

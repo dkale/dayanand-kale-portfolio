@@ -1,4 +1,4 @@
-import { Calendar, Languages, Mail, MapPin, Phone } from "lucide-react";
+import { Languages, Mail, MapPin, Phone } from "lucide-react";
 import { about, profile } from "@/data/portfolio";
 import { Section } from "@/components/portfolio/Section";
 import { Reveal } from "@/components/portfolio/Reveal";
@@ -9,10 +9,9 @@ export function About() {
     { icon: Mail, label: "Email", value: profile.email, href: `mailto:${profile.email}` },
     { icon: Phone, label: "Phone", value: profile.phone, href: profile.phoneHref },
     { icon: Languages, label: "Languages", value: profile.languages.join(", ") },
-    { icon: Calendar, label: "Date of birth", value: profile.dateOfBirth },
   ];
   return (
-    <Section id="about" eyebrow="01 · About" title="From developer to architect — fifteen years of building systems that last.">
+    <Section id="about" eyebrow="01 · About" title="Fifteen years of hands-on engineering, with growing system-design responsibility.">
       <div className="grid gap-12 lg:grid-cols-[1.6fr_1fr]">
         <div className="space-y-5 text-[1.05rem] leading-relaxed text-muted-foreground">
           {about.map((p, i) => (

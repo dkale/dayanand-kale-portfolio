@@ -1,20 +1,20 @@
 # Dayanand Kale Portfolio
 
 # Project: Personal Portfolio Website – Dayanand Kale
-## A Technical / Solution Architect's Professional Portfolio
+## A Hands-on Technical Architect's Professional Portfolio
 
 ### 1. Project Vision
 
 Build a premium, modern, single-page personal portfolio website using my attached résumé as the primary source of truth.
 
-The website should position me as an experienced **Technical Architect / Solution Architect** with 15+ years of experience in enterprise software engineering, full-stack development, distributed systems, cloud architecture, and modern AI-assisted engineering.
+The website should position me as a **hands-on Technical Architect and Senior Specialist Software Engineer** with 15+ years of experience in full-stack development, distributed systems, cloud platforms, system design, and modern AI-assisted engineering.
 
 This is primarily a professional branding and career positioning website targeting:
 
 - Technical recruiters.
 - Engineering hiring managers.
 - CTOs and engineering directors.
-- Architecture and technology leadership teams.
+- Technical architecture and engineering leadership teams.
 
 The website should communicate that I am a hands-on technical professional who can translate complex business requirements into scalable technical solutions, make architectural decisions, guide engineering teams, and deliver production-grade enterprise systems.
 
@@ -22,7 +22,7 @@ It should not look like a generic developer portfolio or a conventional online r
 
 The overall impression should be:
 
-**An experienced enterprise architect who understands technology deeply, thinks architecturally, and remains actively involved in engineering.**
+**An experienced technical professional who understands systems deeply, contributes to system design, and remains actively involved in engineering.**
 
 ### 2. Professional Identity and Positioning
 
@@ -31,17 +31,17 @@ Use the following information.
 **Name:** Dayanand Kale
 
 **Primary designation:**
-Technical Architect | Solution Architect
+Hands-on Technical Architect | Senior Specialist Software Engineer
 
 **Supporting designation:**
-Senior Software Engineer | Full-Stack Specialist
+Senior Specialist Software Engineer | Full-Stack Specialist
 
 **Hero headline:**
-Engineering scalable systems. Architecting the future.
+Building and evolving scalable software systems.
 
 **Professional introduction:**
 
-Technical / Solution Architect with 15+ years of experience designing, developing, and modernizing enterprise software systems. Specializing in distributed systems, cloud-native architecture, reusable engineering platforms, performance optimization, and AI-powered engineering workflows.
+Hands-on software engineer with 15+ years of experience across full-stack development, system design, distributed systems, and cloud platforms. Turning complex requirements into maintainable services, reusable frameworks, and measurable performance improvements.
 
 **Professional location:** Pune, India.
 
@@ -165,8 +165,8 @@ Design it as a sophisticated two-column composition.
 **Left column:**
 
 - Dayanand Kale.
-- Technical Architect | Solution Architect.
-- Engineering scalable systems. Architecting the future.
+- Hands-on Technical Architect | Senior Specialist Software Engineer.
+- Building and evolving scalable software systems.
 - Short professional introduction.
 - Download Résumé button.
 - Let's Connect button.
@@ -184,7 +184,7 @@ Use a clearly marked image placeholder until I provide the actual photograph.
 
 The hero should also communicate selected areas of expertise through subtle technology labels:
 
-.NET | Azure | Angular | Distributed Systems | Enterprise Architecture | AI Engineering
+.NET | Azure | Angular | Distributed Systems | System Design | AI Engineering
 
 Avoid overwhelming the hero with too many technology badges.
 
@@ -197,7 +197,7 @@ Use the following verified information:
 - 15+ Years of Experience.
 - 5 Organizations.
 - 3+ Industry Domains.
-- Enterprise Software & Architecture.
+- Production Software Delivery.
 
 Use elegant typography and subtle separators.
 
@@ -228,7 +228,7 @@ Present technical skills as grouped areas of expertise.
 
 Use categorized technology chips, icons, and concise contextual descriptions.
 
-**Enterprise & Solution Architecture**
+**Systems & Software Architecture**
 - Microservices Architecture
 - Event-Driven Architecture
 - Event Sourcing
@@ -569,11 +569,11 @@ The contact form must include:
 - Loading state.
 - Submission success and failure states.
 - Spam protection or suitable abuse prevention.
-- Secure server-side processing.
+- Direct submission to Web3Forms, compatible with static GitHub Pages hosting.
 
-Use a suitable serverless form service or email integration.
+Use Web3Forms as the form service.
 
-Do not expose API keys in frontend code.
+The Web3Forms access key is public when used directly from the browser; configure it as `VITE_WEB3FORMS_ACCESS_KEY` at build time.
 
 If the contact integration requires credentials or configuration that are not available, create the form UI and a clearly documented integration placeholder. Do not falsely report that a message was sent.
 
@@ -694,7 +694,8 @@ Rules:
 - Use placeholders for missing information.
 - Preserve employment dates and designations.
 - Show client names only where disclosure is permitted.
-- Do not publish date of birth or personal phone number.
+- Do not publish date of birth.
+- Publish a personal phone number only with explicit owner approval; the owner has approved the number currently shown on the site.
 - Clearly distinguish professional experience from personal learning and exploration.
 
 ### 20. Future Extensibility
@@ -766,19 +767,9 @@ Follow this sequence:
 
 Do not stop after creating a static homepage or a design preview.
 
-The final result should communicate the professional identity of an experienced Technical / Solution Architect who combines architectural thinking, deep engineering knowledge, enterprise delivery experience, and an interest in modern AI-powered software development.
+The final result should communicate the professional identity of a hands-on technical architect who combines system-design thinking, deep engineering knowledge, production delivery experience, and an interest in modern AI-powered software development.
 
 **Design principle: Less decoration, more substance. Less generic portfolio, more architectural identity.**
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/ccd3bed1-bc94-413e-b818-78185b7b64ea).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 

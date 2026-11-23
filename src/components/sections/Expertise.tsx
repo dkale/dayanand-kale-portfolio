@@ -7,8 +7,8 @@ import { cn } from "@/lib/utils";
 
 export function Expertise() {
   return (
-    <Section id="expertise" eyebrow="02 · Expertise" title="Architecture first, backed by deep hands-on engineering."
-      intro="Grouped by discipline. Highlighted groups are where I spend most of my architectural attention.">
+    <Section id="expertise" eyebrow="02 · Expertise" title="System design grounded in hands-on engineering."
+      intro="Grouped by discipline. Highlighted groups represent system-design and engineering areas I apply in practice.">
       <div className="mb-8 flex flex-wrap gap-4 font-mono text-[0.7rem] text-muted-foreground" aria-label="Legend">
         <span className="flex items-center gap-2"><TechTag label="Architecture" tier="architecture" /> design focus</span>
         <span className="flex items-center gap-2"><TechTag label="Core" tier="core" /> daily stack</span>

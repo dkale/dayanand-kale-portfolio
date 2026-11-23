@@ -66,7 +66,7 @@ The website is a single-page application with:
 |---|---|
 | React 19 | User interface framework |
 | TypeScript | Type-safe JavaScript |
-| TanStack Start | Full-stack React framework, server functions, SSR, and routing |
+| TanStack Start | React framework used for routing and static prerendering |
 | TanStack Router | Route matching and navigation |
 | TanStack Query | Server and data state management |
 | Vite | Development server and production build tool |
@@ -80,7 +80,7 @@ The website is a single-page application with:
 | Testing Library | Component testing |
 | Bun | Package/runtime tooling |
 | Web3Forms | Contact-form email delivery |
-| Lovable/Nitro | Hosting and server build integration |
+| TanStack Start Vite plugin | Route generation and static prerendering |
 
 The complete dependency list is in `package.json`.
 
@@ -117,7 +117,7 @@ This creates `node_modules` and installs the packages defined in `package.json`.
 npm.cmd run test
 ```
 
-The current test suite contains 2 test files and 5 passing tests.
+The test suite includes route, contact validation, and contact submission tests.
 
 ### 4. Build the app
 
@@ -125,7 +125,7 @@ The current test suite contains 2 test files and 5 passing tests.
 npm.cmd run build
 ```
 
-This builds the client, server, and prerendered output. The build currently completes successfully.
+This builds the client assets and prerendered static output in `dist/client`, which GitHub Pages publishes.
 
 ### 5. Start the development server
 
@@ -133,17 +133,25 @@ This builds the client, server, and prerendered output. The build currently comp
 npm.cmd run dev -- --host 127.0.0.1
 ```
 
-Open:
+Open the URL printed in the terminal. Vite's default is:
 
-**http://127.0.0.1:8080/**
+**http://127.0.0.1:5173/**
 
-The homepage should return HTTP 200.
+### Contact form configuration
 
-### Optional contact form configuration
+The contact form submits directly from the browser to Web3Forms; it does not use a server function. Its access key is therefore included in the public JavaScript bundle. Treat the key as public, not as a secret.
 
-The contact form uses Web3Forms. Set the `WEB3FORMS_ACCESS_KEY` environment variable for real message delivery.
+For local development, create `.env.local` in the repository root:
 
-If the key is not configured, the form displays a setup message and does not claim that a message was sent.
+```dotenv
+VITE_WEB3FORMS_ACCESS_KEY=your_web3forms_access_key
+```
+
+The `.local` pattern is ignored by Git.
+
+For GitHub Pages, add a repository Actions variable named `VITE_WEB3FORMS_ACCESS_KEY` under **Settings → Secrets and variables → Actions → Variables**. The deployment workflow reads it during the build. Although GitHub calls this an Actions variable, its value is public in the built site.
+
+If the key is missing, the form displays a setup message and does not claim that a message was sent.
 
 ## Angular to React correlation
 
@@ -220,15 +228,13 @@ The initial theme is applied before the page is painted to avoid flickering. The
 
 ### Contact form
 
-The contact form is handled by TanStack server functions:
+The contact form validates and submits directly to Web3Forms from the browser:
 
 - `src/components/sections/Contact.tsx` provides the form UI.
 - `src/lib/contact-schema.ts` validates its input.
-- `src/lib/contact.functions.ts` sends the message to Web3Forms.
+- `src/lib/contact-submit.ts` sends the message to Web3Forms.
 
-The contact form uses a hidden honeypot field and a minimum-fill-time check to reject obvious automated submissions.
-
-The `WEB3FORMS_ACCESS_KEY` server secret must be configured. If it is missing, the form does not claim success and tells visitors to use email instead.
+The Web3Forms access key is public in this setup. The form includes Web3Forms' hidden bot-check field. If the access key is missing or the request fails, the form reports an error and does not claim success.
 
 ## Important React concepts used
 
@@ -253,7 +259,7 @@ Common examples in this repository:
 - `useState` stores changing UI state.
 - `useEffect` runs lifecycle or side-effect logic.
 - `useCallback` creates a stable callback function.
-- `useServerFn` invokes a TanStack server function.
+- `fetch` sends browser requests to external APIs, such as Web3Forms.
 
 Custom hooks include:
 
@@ -289,6 +295,7 @@ The repository includes:
 
 - Routing tests in `src/test/app-routing.test.tsx`
 - Contact schema tests in `src/test/contact-schema.test.ts`
+- Web3Forms submission tests in `src/test/contact-submit.test.ts`
 - Test setup in `src/test/setup.ts`
 
 The tests use Vitest and Testing Library.
